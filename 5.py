@@ -1,0 +1,7 @@
+print("Домик:")
+print("        /\\")
+print("       /  \\")
+print("      /----\\")
+print("     /|    |\\")
+print("      |    |")
+print("      |____|")
