@@ -1,0 +1,56 @@
+// file_ltine.cpp : Defines the entry point for the console application.
+// created by YourSpace_tym
+ 
+#include "stdafx.h"
+#include "iostream"
+#include "fstream"
+#include "string"
+#include "cctype"
+#include "vector"
+ 
+using namespace std;
+ 
+bool is_leter_the_same(vector<char> p, int size, char symb){
+    for (int i = 0; i < size; i++) {
+        if (symb == p[i]) return false;
+        else if(i+1 == size) return true;
+    }
+}
+ 
+int main()
+{
+    string path;
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    vector<char> letters_from_file;
+    char k;
+    int p = 0;
+    cout << "Path to file : ";
+    getline(cin, path);
+    ifstream fin(path);
+    while (!fin.eof() && fin.get(k)) {
+        if (isalpha(k) && p == 0) {
+            letters_from_file.insert(letters_from_file.end(), tolower(k));
+        }
+        else if (isalpha(k) && is_leter_the_same(letters_from_file, letters_from_file.size(), k)) letters_from_file.insert(letters_from_file.end(), tolower(k));
+        if (letters_from_file.size() != 0) p = 1;
+    }
+    int m, n;
+    for (int i = 0; i < letters_from_file.size(); i++){
+        for (int s = 0; s < letters_from_file.size(); s++) {
+            for (int j = 0; j < alphabet.length(); j++) {
+                if (letters_from_file[i] == alphabet[j]) m = j;
+                if (letters_from_file[s] == alphabet[j]) n = j;
+            }
+            if (n > m) {
+                int r = letters_from_file[i];
+                letters_from_file[i] = letters_from_file[s];
+                letters_from_file[s] = r;
+            }
+        }
+    }
+    for (int i = 0; i < letters_from_file.size(); i++) {
+        cout << letters_from_file[i];
+    }
+    cout << endl;
+    return 0;
+}
