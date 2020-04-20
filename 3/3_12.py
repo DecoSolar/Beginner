@@ -40,19 +40,19 @@ while j == 0:
     k = int(input("1 - ввод матрицы\n2 - суммирование двух матриц\n3 - умножение двух матриц\n0 - выход\n"))
     if k == 1:
         try:
-            m, n = map(int, input("Введите размерность матрицы(через пробел): ").split())
-            matrix = VvodMatrix(m, n)
-            print("Матрица: \n", matrix)
+            m, n = map(int, input("Введите размерность матрицы(через пробел): ").split())# любые м и н
+            matrix = VvodMatrix(m, n)       # просто вводим любую матрицу
+            print("Матрица: \n", matrix)    # вывод введенной матрицы
         except ValueError:
             print("ERROR")
     elif k == 2:
         try:
-            m, n = map(int, input("Введите размерность матриц(через пробел): ").split())
+            m, n = map(int, input("Введите размерность матриц(через пробел): ").split()) # ввела 3 3
             print("Первая матрица: ")
-            matrix1 = VvodMatrix(m, n)
+            matrix1 = VvodMatrix(m, n) # матрица 1 0 1 0 1 0 1 0 1
             print("Вторая матрица: ")
-            matrix2 = VvodMatrix(m, n)
-            matrix3 = SlozenieMatrix(matrix1, matrix2, m, n)
+            matrix2 = VvodMatrix(m, n) # матрица 0 1 0 1 0 1 0 1 0
+            matrix3 = SlozenieMatrix(matrix1, matrix2, m, n) #итог 1 1 1 1 1 1 1 1 1
             print(matrix1, "\n\t+\n", matrix2, "\n\t=\n", matrix3)
         except ValueError:
             print("ERROR")
