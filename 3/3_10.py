@@ -5,8 +5,8 @@ if k == 1:
 elif k == 2:
     salary -= 500
 elif k == 3:
-    deti = int(input("Сколько у вас детей?"))
-    inval = int(input("Сколько среди них инвалидов?"))
+    deti = int(input("Сколько у вас детей? "))
+    inval = int(input("Сколько среди них инвалидов? "))
     if deti <= 2 and inval == 0:
         salary -= 1400 * deti
     elif deti > 2 and inval == 0:
